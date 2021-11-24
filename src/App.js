@@ -8,6 +8,7 @@ import CreateGame from './components/CreateGame.js';
 import EditGame from './components/EditGame.js';
 import GameDetails from './components/GameDetails.js';
 import GameCatalog from './components/GameCatalog.js';
+import ErrorPage from './components/ErrorPage.js';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
         
 
         <main id="main-content">
-         { routes[page] || <h2>No Page Found !</h2>}
+         { routes[page] || <ErrorPage>Some Additional Info</ErrorPage>}
         </main>
 
         {/* <Login/>
