@@ -7,7 +7,14 @@ import EditGame from './components/EditGame.js';
 import GameDetails from './components/GameDetails.js';
 import GameCatalog from './components/GameCatalog.js';
 
+
 function App() {
+  const routes = {
+    '/home': WelcomeWorld,
+    '/games': GameCatalog,
+    '/create-game': CreateGame,
+  };
+
   return (
     <div id="box">
       <Header />
