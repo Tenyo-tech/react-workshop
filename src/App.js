@@ -7,7 +7,7 @@ import Register from './components/Register.js';
 import CreateGame from './components/CreateGame.js';
 import EditGame from './components/EditGame.js';
 import GameDetails from './components/GameDetails.js';
-import GameCatalog from './components/GameCatalog.js';
+import GameCatalog from './components/GameCatalog/GameCatalog.js';
 import ErrorPage from './components/ErrorPage.js';
 
 
