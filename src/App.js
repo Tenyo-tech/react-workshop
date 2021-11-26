@@ -14,20 +14,30 @@ import ErrorPage from './components/ErrorPage.js';
 function App() {
   const [page, setPage] = useState('/home')
 
-  const routes = {
-    '/home': <WelcomeWorld/>,
-    '/games': <GameCatalog/>,
-    '/create-game': <CreateGame/>,
-    '/login': <Login/>,
-    '/register': <Register/>,
-    '/edit-game': <EditGame/>,
-  };
-
   const navigationChangeHandler = (path) => {
-    
+    console.log(path);
     setPage(path);
-    console.log(`${page} change`);
   }
+
+  const router = (path) => {
+    let pathNames = path.split('/');
+
+    let rootPath = pathNames[1];
+    let argument = pathNames[2];
+
+    const routes = {
+      'home': <WelcomeWorld/>,
+      'games': <GameCatalog navigationChangeHandler = {navigationChangeHandler}/>,
+      'create-game': <CreateGame/>,
+      'login': <Login/>,
+      'register': <Register/>,
+      'edit-game': <EditGame/>,
+      'details': <GameDetails id= {argument}/>,
+    };
+
+    return routes[rootPath];
+  }
+  
   return (
     <div id="box">
       <Header 
@@ -36,7 +46,7 @@ function App() {
         
 
         <main id="main-content">
-         { routes[page] || <ErrorPage>Some Additional Info</ErrorPage>}
+         { router(page) || <ErrorPage>Some Additional Info</ErrorPage>}
         </main>
 
         {/* <Login/>
